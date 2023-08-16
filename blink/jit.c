@@ -125,7 +125,8 @@ const u8 kJitSav[5] = {kJitSav0, kJitSav1, kJitSav2, kJitSav3, kJitSav4};
 #define MOVE_SRC(a)    ((0x00ff00 & (a)) >> 8)
 #define HASH(virt)     (virt)
 
-static u8 g_code[kJitMemorySize];
+static u8 g_code[kJitMemorySize]
+  __attribute__((section(".openbsd.mutable")));
 
 static struct JitGlobals {
   pthread_mutex_t_ lock;
