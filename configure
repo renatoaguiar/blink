@@ -720,6 +720,9 @@ for x; do
   fi
 done
 
+# Disable BTI
+LDFLAGS="-Wl,-z,nobtcfi ${LDFLAGS}"
+
 cat >>"${BUILD}" <<EOF || exit
 CC = ${CC}
 AR = ${AR}
